@@ -4,6 +4,7 @@ const mongoose = restful.mongoose
 const symptonSchema = new mongoose.Schema({
     name: {
         type: String,
+        uppercase: true,
         required: true
     },
     description: {
@@ -33,10 +34,15 @@ const pacientSchema = new mongoose.Schema({
 const diagnosisSchema = new mongoose.Schema({
     diagnosis: {
         type: String,
+        uppercase: true,
         required: true
     },
     symptons: [symptonSchema],
     pacient: pacientSchema
 })
 
-module.exports = restful.model('Diagnosis', diagnosisSchema)
+module.exports = {
+    diagnosis: restful.model('Diagnosis', diagnosisSchema),
+    sympton: restful.model('Sympton', symptonSchema),
+    pacient: restful.model('Pacient', pacientSchema)
+}
