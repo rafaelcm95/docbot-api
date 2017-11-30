@@ -1,0 +1,19 @@
+{
+  "name": "docbotapi",
+  "version": "1.0.0",
+  "description": "Api REST para serviço de bot para auxilio medico",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelcm95/docbot-api.git"
+  },
+  "author": "Rafael Carvalho Monteiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelcm95/docbot-api/issues"
+  },
+  "homepage": "https://github.com/rafaelcm95/docbot-api#readme"
+}
