@@ -43,6 +43,4 @@ const diagnosisSchema = new mongoose.Schema({
 
 module.exports = {
     diagnosis: restful.model('Diagnosis', diagnosisSchema),
-    sympton: restful.model('Sympton', symptonSchema),
-    pacient: restful.model('Pacient', pacientSchema)
 }

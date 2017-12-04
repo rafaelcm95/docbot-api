@@ -1,4 +1,5 @@
 const express = require('express')
+const request = require('request')
 
 module.exports = function(server) {
     const router = express.Router()
@@ -7,6 +8,4 @@ module.exports = function(server) {
     server.use('/api', router)
 
     diagnosisService.diagnosis.register(router, '/diagnosis')
-    diagnosisService.pacient.register(router, '/pacient')
-    diagnosisService.sympton.register(router, '/sympton')
 }
