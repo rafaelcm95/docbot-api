@@ -7,5 +7,6 @@ module.exports = function(server) {
 
     server.use('/api', router)
 
-    diagnosisService.diagnosis.register(router, '/diagnosis')
+    diagnosisService.register(router, '/diagnosis')
+
 }
