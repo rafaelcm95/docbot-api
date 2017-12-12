@@ -9,6 +9,16 @@ module.exports = (function() {
         return count
     }
 
+    var countDiagnostics = (obj) => {
+        var count = {}, e
+
+        for (var i = 0; i < obj.length; i++) { 
+            e = obj[i]
+            count[e.diagnosis] = (count[e.diagnosis] || 0) + 1
+        }
+        return count
+    }
+
     var countStates = (obj) => {
         var count = {}, e
 
@@ -49,6 +59,7 @@ module.exports = (function() {
         countSymptons: countSymptons,
         countStates: countStates,
         sexPercent: sexPercent,
-        ageAverage: ageAverage
+        ageAverage: ageAverage,
+        countDiagnostics: countDiagnostics
     }
 })()
