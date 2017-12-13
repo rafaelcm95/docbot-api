@@ -1,4 +1,4 @@
-const porta = 3003
+const porta = 3000
 const bodyParser = require('body-parser')
 const express = require('express')
 const server = express()

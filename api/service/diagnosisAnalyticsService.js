@@ -1,15 +1,8 @@
-const Diagnosis = require('../model/diagnosis')
+const Analytics = require('../model/diagnosis')
 const Util = require('../util/util')
 
-Diagnosis.methods(['get', 'post', 'put', 'delete'])
-
-Diagnosis.updateOptions({
-    new: true,
-    runValidators: true
-})
-
-Diagnosis.route('count', (req, res, next) => {
-    Diagnosis.count(function(error, value) {
+Analytics.route('count', (req, res, next) => {
+    Analytics.count(function(error, value) {
         if(error)
             res.status(500).json({ errors: [error] })
         else
@@ -17,8 +10,8 @@ Diagnosis.route('count', (req, res, next) => {
     })
 })
 
-Diagnosis.route('pacient', (req, res) => {
-    Diagnosis.find({'diagnosis': req.body.diagnosis}, 'pacient.sex pacient.age pacient.state', function(err, diagnosis) {
+Analytics.route('pacient', (req, res) => {
+    Analytics.find({'diagnosis': req.body.diagnosis}, 'pacient.sex pacient.age pacient.state', function(err, diagnosis) {
         if(err)
             res.status(500).json({ errors: [err] })
         else {
@@ -36,8 +29,8 @@ Diagnosis.route('pacient', (req, res) => {
     })  
 })
 
-Diagnosis.route('symptom', (req, res) => {
-    Diagnosis.find({'diagnosis': req.body.diagnosis}, 'symptons.name', function(err, diagnosis) {
+Analytics.route('symptom', (req, res) => {
+    Analytics.find({'diagnosis': req.body.diagnosis}, 'symptons.name', function(err, diagnosis) {
         if(err)
             res.status(500).json({ errors: [err] })
         else {
@@ -53,9 +46,8 @@ Diagnosis.route('symptom', (req, res) => {
     })   
 })
 
-Diagnosis.route('suggestions', (req, res) => {
-    Diagnosis.find({"symptons.name": {"$all" : req.body.symptons} }, 'diagnosis', function(err, diagnosis) {
-        console.log(diagnosis)
+Analytics.route('suggestions', (req, res) => {
+    Analytics.find({"symptons.name": {"$all" : req.body.symptons} }, 'diagnosis', function(err, diagnosis) {
         if(err)
             res.status(500).json({ errors: [err] })
         else {
@@ -71,4 +63,4 @@ Diagnosis.route('suggestions', (req, res) => {
     })
 })
 
-module.exports = Diagnosis
+module.exports = Analytics

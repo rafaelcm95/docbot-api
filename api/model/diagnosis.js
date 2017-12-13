@@ -37,8 +37,18 @@ const diagnosisSchema = new mongoose.Schema({
         uppercase: true,
         required: true
     },
-    symptons: [symptonSchema],
-    pacient: pacientSchema
+    symptons:{
+        type:  [symptonSchema],
+        required: true
+    },
+    pacient: {
+        type: pacientSchema,
+        required: true
+    },
+    doctorId: {
+        type: String
+        //required: true
+    }
 })
 
 module.exports = restful.model('Diagnosis', diagnosisSchema)
